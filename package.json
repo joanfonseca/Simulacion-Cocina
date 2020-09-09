@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/joanfonseca/Simulacion-Cocina#readme",
   "dependencies": {
+    "delay": "^4.4.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "fs-extra": "^9.0.1",
