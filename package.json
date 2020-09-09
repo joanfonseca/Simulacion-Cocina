@@ -1,0 +1,31 @@
+{
+  "name": "simulacion-cocina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanfonseca/Simulacion-Cocina.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanfonseca/Simulacion-Cocina/issues"
+  },
+  "homepage": "https://github.com/joanfonseca/Simulacion-Cocina#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
