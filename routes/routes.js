@@ -7,7 +7,10 @@ router.get('/', async (req, res) => {
   res.render('index')
 })
 
-router.get('/nuevo', async (req, res) => {
+router.get('/agregarpedido', async (req, res) => {
   res.render('Nuevo')
 })
+
+
+
 module.exports = router
