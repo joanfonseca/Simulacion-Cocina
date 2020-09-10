@@ -6,7 +6,9 @@ const { format } = require('timeago.js');
 const routesApi = require('./routes/routeDocs')
 const path = require('path')
 const multer = require('multer')
+var bodyParser = require('body-parser')
 
+require('./database/database');
 app.use(morgan('dev'))
 app.set('views', path.join(__dirname, 'views'))
 
@@ -32,6 +34,12 @@ app.use((req, res, next) => {
   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
   next()
 })
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
 //esta funcion controla los errores de sevidor
 app.use(function (err, req, res, next) {
