@@ -13,6 +13,18 @@ let showOrders = (req, res) => {
     })
 }
 
+let showOrdersViews = (req, res) => {
+    OrderView.find({}, (err, data) => {
+        if(err){
+            return res.json({
+                ok: false,
+                err
+            })
+        }
+        res.json(data);
+    })
+}
+
 let receiveOrder = (req, res, next) => {    
     let order = new Order({
         name : req.body.name,
@@ -53,12 +65,19 @@ let receiveOrder = (req, res, next) => {
 }
 
 
-let deleteOrder = async(req, res) => {
+let deliverOrder = async(req, res) => {
+    Order.find({}, (err, data) => {
+        if(err){
+            return res.json({
+                ok: false,
+                err
+            })
+        }
+        res.json(data);
+    })
     Order.deleteMany({}, function(err, result) {
         if (err) {
           res.send(err);
-        } else {
-          res.send(result);
         }
     });
 }
@@ -67,5 +86,6 @@ let deleteOrder = async(req, res) => {
 module.exports = {
     showOrders,
     receiveOrder,
-    deleteOrder
+    deliverOrder,
+    showOrdersViews
 }

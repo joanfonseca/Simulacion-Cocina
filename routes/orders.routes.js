@@ -5,8 +5,10 @@ var router = express.Router();
 
 router.get('/', orderController.showOrders);
 
+router.get('/views', orderController.showOrdersViews);
+
 router.post('/save', orderController.receiveOrder);
 
-router.delete('/delete',orderController.deleteOrder);
+router.get('/deliver',orderController.deliverOrder);
 
 module.exports = router;
