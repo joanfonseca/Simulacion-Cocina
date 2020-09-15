@@ -7,7 +7,7 @@ router.get('/', orderController.showOrders);
 
 router.get('/views', orderController.showOrdersViews);
 
-router.post('/save', orderController.receiveOrder);
+router.post('/receive', orderController.receiveOrder);
 
 router.get('/deliver',orderController.deliverOrder);
 
