@@ -1,4 +1,5 @@
 const Order = require('../models/Order');
+const OrderView = require('../models/OrderView');
 
 let showOrders = (req, res) => {
     Order.find({}, (err, data) => {
@@ -12,8 +13,14 @@ let showOrders = (req, res) => {
     })
 }
 
-let saveOrder = (req, res) => {    
+let receiveOrder = (req, res, next) => {    
     let order = new Order({
+        name : req.body.name,
+        type: req.body.type,
+        price: req.body.price
+    })
+
+    let orderView = new OrderView({
         name : req.body.name,
         type: req.body.type,
         price: req.body.price
@@ -23,21 +30,42 @@ let saveOrder = (req, res) => {
 
     order.save((err, newOrder) => {
         if(err){
-            return res.json({
+            res.json({
                 ok: false,
                 err
             })
         }
 
-        return res.status(201).json({
+        res.status(201).json({
             ok : true,
             order : newOrder
         })
     })
+
+    orderView.save((err, newOrderView) => {
+        if(err){
+            res.json({
+                ok: false,
+                err
+            })
+        }
+    })
+}
+
+
+let deleteOrder = async(req, res) => {
+    Order.deleteMany({}, function(err, result) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.send(result);
+        }
+    });
 }
 
 
 module.exports = {
     showOrders,
-    saveOrder
+    receiveOrder,
+    deleteOrder
 }
