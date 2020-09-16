@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calificar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Platos</b></h4>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <li *ngFor="let data of order"> <b>Id:</b>  {{data.id_order}}
+                <ul *ngFor="let dato of data.dishes">
+                <b>Nombre: </b>{{dato.name}} ,
+                <b>Tipo: </b>{{dato.dishe_type}} ,
+                <b>Precio: </b>{{dato.price}}</ul>
+            </li>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

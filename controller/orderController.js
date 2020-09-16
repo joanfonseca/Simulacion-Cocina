@@ -31,7 +31,6 @@ let receiveOrder = (req, res, next) => {
         dishes : req.body.dishes
     })
 
-
     let orderView = new OrderView({
         id_order : req.body.id_order,
         dishes : req.body.dishes

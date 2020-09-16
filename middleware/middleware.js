@@ -4,7 +4,7 @@ let doCook = (req, res, next)=>{
     setTimeout(() => {
         console.log('-------- ',order);
         next();
-    }, 20000);    
+    }, 1000);    
 }
 
 function esperar(){
