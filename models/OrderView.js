@@ -2,13 +2,12 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var orderSchema = new Schema({
-    name : String,
-    type: String,
-    price: String,
-    status : {
-        type : String,
-        default : 'pendiente'
-    }
+    id_order : String,
+    dishes : [{
+        name : String,
+        dishe_type: String,
+        price: String
+    }]
 })
 
 module.exports = mongoose.model('OrderView', orderSchema);

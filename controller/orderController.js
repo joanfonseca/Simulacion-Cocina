@@ -27,18 +27,15 @@ let showOrdersViews = (req, res) => {
 
 let receiveOrder = (req, res, next) => {    
     let order = new Order({
-        name : req.body.name,
-        type: req.body.type,
-        price: req.body.price
+        id_order : req.body.id_order,
+        dishes : req.body.dishes
     })
+
 
     let orderView = new OrderView({
-        name : req.body.name,
-        type: req.body.type,
-        price: req.body.price
+        id_order : req.body.id_order,
+        dishes : req.body.dishes
     })
-
-    console.log(order);
 
     order.save((err, newOrder) => {
         if(err){
@@ -54,7 +51,7 @@ let receiveOrder = (req, res, next) => {
         })
     })
 
-    orderView.save((err, newOrderView) => {
+   orderView.save((err, newOrderView) => {
         if(err){
             res.json({
                 ok: false,
@@ -62,6 +59,7 @@ let receiveOrder = (req, res, next) => {
             })
         }
     })
+
 }
 
 
