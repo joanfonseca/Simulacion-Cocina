@@ -27,6 +27,7 @@
     "mongoose": "^5.10.4",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "random-normal": "^1.0.0",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
