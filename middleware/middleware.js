@@ -17,12 +17,13 @@ var cookTwo = {
 
 let doCook = (req, res, next)=>{
     let order  = req.body.dishes;
+    let id_order = req.body.id_order;
     let time = 0;
     order.forEach(element => {
         let dishe = element;        
         time += chooseCook(dishe);        
     });
-    console.log(time);
+    console.log('Tiempo total para la orden ',id_order,' : ',time, ' unidades de tiempo');
     setTimeout(() => {
         next();
     }, time);
