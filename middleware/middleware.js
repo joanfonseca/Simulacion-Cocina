@@ -19,40 +19,39 @@ let doCook = (req, res, next)=>{
     let order  = req.body.dishes;
     let time = 0;
     order.forEach(element => {
-        let dishe = element.dishe_type;        
+        let dishe = element;        
         time += chooseCook(dishe);        
     });
     console.log(time);
     setTimeout(() => {
-        console.log('Cocinando-------- ',order);
         next();
     }, time);
 }
 
 function timeOfCookOne(dishe){
     var result = 0;
-    if(dishe == "entrada"){
+    if(dishe.dishe_type == "entrada"){
         result = Math.floor(randomNormal({mean: cookOne.starterDish, dev: cookOne.starterDish * 0.2}));
     }
-    if(dishe == "fuerte"){
+    if(dishe.dishe_type == "fuerte"){
         result = Math.floor(randomNormal({mean: cookOne.mainDish, dev: cookOne.mainDish * 0.2}));
     }
-    if(dishe == "postre"){
+    if(dishe.dishe_type == "postre"){
         result = Math.floor(randomNormal({mean: cookOne.dessert, dev: cookOne.dessert * 0.2}));
     }
-    console.log('cocinero 1 cocinó ', dishe, ' en ', result,' tiempo');
+    console.log('cocinero 1 cocinó ', dishe.name, ' en ', result,' unidades de tiempo');
     return result;
 }
 
 function timeOfCookTwo(dishe){
     var result = 0;
-    if(dishe == "entrada"){
+    if(dishe.dishe_type == "entrada"){
         result = Math.floor(randomNormal({mean: cookTwo.starterDish, dev: cookOne.starterDish * 0.2}));
     }
-    if(dishe == "fuerte"){
+    if(dishe.dishe_type == "fuerte"){
         result = Math.floor(randomNormal({mean: cookTwo.mainDish, dev: cookOne.mainDish * 0.2}));
     }
-    console.log('cocinero 2 cocinó ', dishe, ' en ', result,' tiempo');
+    console.log('cocinero 2 cocinó ', dishe.name, ' en ', result,' unidades de tiempo');
     return result;
 }
 
