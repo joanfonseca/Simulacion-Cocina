@@ -13,24 +13,36 @@
 
 <body>
     <div class="container">
+
+
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h4><b>Platos</b></h4>
+                    <div class="col-sm-12 text-center">
+                        <h4><b>Platos preparados</b></h4>
                     </div>
                 </div>
             </div>
             <br>
             <br>
-            <li *ngFor="let data of order"> <b>Id:</b>  {{data.id_order}}
-                <ul *ngFor="let dato of data.dishes">
-                <b>Nombre: </b>{{dato.name}} ,
-                <b>Tipo: </b>{{dato.dishe_type}} ,
-                <b>Precio: </b>{{dato.price}}</ul>
-            </li>
+            <div class="row">
+                <div class="card col-md-5 mx-auto my-3 px-0" *ngFor="let data of order">
+                    <div class="card-header bg-primary text-center">
+                        <b>ID: </b> <b>{{data.id_order}}</b>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Orden</h5>
+                        <ul *ngFor="let dato of data.dishes">
+                            <b>Nombre: </b>{{dato.name}} ,
+                            <b>Tipo: </b>{{dato.dishe_type}} ,
+                            <b>Precio: </b>{{dato.price}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <br>
         </div>
     </div>
 </body>
+
 </html>
