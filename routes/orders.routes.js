@@ -12,4 +12,5 @@ router.post('/receive', doCook,orderController.receiveOrder);
 
 router.get('/deliver',orderController.deliverOrder);
 
+router.delete('/deleteOrderView', orderController.deleteOrderViews);
 module.exports = router;
