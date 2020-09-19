@@ -3,6 +3,7 @@ const Dishe = require('../models/dishe');
 
 let createDishe = (req, res, next) => {    
     let dishe = new Dishe({
+        id: req.body.id,
         name : req.body.name,
         dishe_type : req.body.dishe_type,
         price: req.body.price
@@ -24,16 +25,21 @@ let createDishe = (req, res, next) => {
 }
 
 let showDishes = (req, res) => {
-    Dishe.find({}, (err, data) => {
-        if(err){
-            return res.json({
-                ok: false,
-                err
-            })
+    Dishe.find({})
+    .exec(
+        (err, data) => {
+            if(err){
+                return res.json({
+                    ok: false,
+                    err
+                })
+            }
+            res.json(data);
         }
-        res.json(data);
-    })
+    )
 }
+
+
 
 
 module.exports = {
