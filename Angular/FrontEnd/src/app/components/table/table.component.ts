@@ -20,8 +20,9 @@ ngOnInit() {
     this.servicioService
       .getPlatos('http://localhost:3000/orders/views')
       .subscribe(data => {
-      this.order = data;      
+      this.order = data;
       });
+
   }
 
 }
