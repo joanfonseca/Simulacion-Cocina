@@ -31,6 +31,8 @@ let receiveOrder = (req, res, next) => {
         dishes : req.body.dishes
     })
 
+    console.log(req.body.dishes);
+
     let orderView = new OrderView({
         id_order : req.body.id_order,
         dishes : req.body.dishes
@@ -79,10 +81,21 @@ let deliverOrder = async(req, res) => {
     });
 }
 
+let deleteOrderViews = async (req, res) => {
+    OrderView.deleteMany({}, function(err, result){
+        if(err){
+            res.send(err);
+        }
+        res.send(result);
+    })
+
+}
+
 
 module.exports = {
     showOrders,
     receiveOrder,
     deliverOrder,
-    showOrdersViews
+    showOrdersViews,
+    deleteOrderViews
 }
